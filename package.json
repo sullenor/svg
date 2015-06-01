@@ -1,0 +1,21 @@
+{
+  "name": "svg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bro/page/browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.1.1",
+    "browserify": "^10.2.1",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-jade": "^1.0.1",
+    "react": "^0.13.3",
+    "svgo": "0.5.2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}

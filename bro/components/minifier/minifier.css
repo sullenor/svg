@@ -1,0 +1,12 @@
+.minifier
+{
+  width: 100%;
+}
+
+.minifier__input,
+.minifier__output
+{
+  display: block;
+  width: 100%;
+  min-height: 300px;
+}
