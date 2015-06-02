@@ -11,6 +11,10 @@ function minify() {
   Store.minify();
 }
 
+function reset() {
+  Store.reset();
+}
+
 function updateStoresInput(e) {
   Store.setInput(e.target.value);
 }
@@ -48,6 +52,9 @@ export default class Minifier extends React.Component {
       <Button
         type='button'
         onClick={minify}>Minify</Button>
+      <Button
+        type='button'
+        onClick={reset}>Reset</Button>
     </div>);
   }
 }

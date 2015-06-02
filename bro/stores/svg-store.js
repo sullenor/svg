@@ -34,4 +34,10 @@ proto.setInput = function (text) {
   this._input = text;
 };
 
+proto.reset = function () {
+  this._input = '';
+  this._output = '';
+  this.emit('change');
+};
+
 export default new SVGStore();
