@@ -11,30 +11,31 @@ gulp.task('default', ['css', 'html', 'js']);
 
 gulp.task('css', function () {
   gulp.src('bro/**/*.css')
-    .pipe(concat('common.css'))
+    .pipe(concat('index.css'))
     .pipe(gulp.dest('static'));
 });
 
 gulp.task('html', function () {
-  gulp.src('./bro/page/index.jade')
+  gulp.src('./pages/index.jade')
     .pipe(jade())
     .pipe(gulp.dest('./static'));
 });
 
 gulp.task('js', function () {
-  browserify('./bro/page/browser.js')
+  browserify('./pages/index.js')
     .transform(babelify)
     .bundle()
     .on('error', function (err) { console.error(err.message || err); })
-    .pipe(source('browser.js'))
+    .pipe(source('index.js'))
     .pipe(gulp.dest('static'));
 });
 
-gulp.task('gaze', function () {
-  gulp.watch('bro/**/*.css', ['css']);
-  gulp.watch('bro/page/index.jade', ['html']);
+gulp.task('spy', ['default'], function () {
+  gulp.watch(['pages/index.css', 'bro/components/*.css'], ['css']);
+  gulp.watch('pages/index.jade', ['html']);
   gulp.watch([
-    'bro/components/*/*.jsx',
+    'pages/index.js',
+    'bro/components/*.jsx',
     'bro/*/*.js'
   ], ['js']);
 });

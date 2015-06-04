@@ -1,9 +1,11 @@
 'use strict';
 
-import * as React from 'react';
+import React, {Component} from 'react';
 
-export default class Button extends React.Component {
+class Button extends Component {
   render() {
     return (<button {...this.props}>{this.props.children}</button>);
   }
 }
+
+export default Button;
