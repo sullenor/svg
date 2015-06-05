@@ -46,9 +46,11 @@ class Minifier extends Component {
           className='minifier__output'
           value={this.state.output} />
         <Button
-          onClick={minify}>Minify</Button>
-        <Button
+          mods={{theme: 'normal'}}
           onClick={this._reset.bind(this)}>Reset</Button>
+        <Button
+          mods={{theme: 'action'}}
+          onClick={minify}>Minify</Button>
       </div>
     );
   }
