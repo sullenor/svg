@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {assoc, get} from 'mori';
+import {assoc, get, toJs} from 'mori';
 import minify from '../actions/minify';
 
 import Button from './button.jsx';
@@ -12,10 +12,7 @@ import Svg from '../stores/Svg';
 class Minifier extends Component {
   constructor() {
     super();
-    this.state = {
-      input: get(Svg.getStore(), 'input'),
-      output: get(Svg.getStore(), 'output')
-    };
+    this.state = toJs(Svg);
   }
 
   componentDidMount() {
@@ -30,7 +27,7 @@ class Minifier extends Component {
 
   _onChange(e) {
     var value = e.target.value;
-    assoc(Svg.getStore(), 'input', value);
+    Svg.set('input', value);
     this.setState({input: value});
   }
 

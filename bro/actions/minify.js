@@ -5,9 +5,9 @@ import optimize from '../modules/optimize';
 import Svg from '../stores/Svg';
 
 export default function minify() {
-  optimize(get(Svg.getStore(), 'input'), function (err, result) {
-    var output = err && err.toString() || result;
-    assoc(Svg.getStore(), 'output', output);
-    Svg.emit('change', get(Svg.getStore(), 'output'));
+  optimize(Svg.get('input'), function (err, str) {
+    var result = err && err.toString() || str;
+    Svg.set('output', str);
+    Svg.emit('change', str);
   });
 }
