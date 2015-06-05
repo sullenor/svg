@@ -1,12 +1,13 @@
 'use strict';
 
 import React, {Component} from 'react';
+import Classes from './Classes.jsx';
 
-class Button extends Component {
+export default class Button extends Classes {
   render() {
-    return (<button className='button'
+    return (<button className={this.state.className}
       {...this.props}>{this.props.children}</button>);
   }
 }
 
-export default Button;
+Button.defaultProps = {baseClassName: 'button'};
